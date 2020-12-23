@@ -16,7 +16,7 @@ class MovieRowComponent: DataBasedComponentView<MovieRowData> {
         stackView.alignment = .center
         stackView.distribution = .fill
         stackView.axis = .horizontal
-        stackView.backgroundColor = .lightGray
+        stackView.backgroundColor = .blue
         stackView.layer.cornerRadius = 10
         return stackView
     }()
@@ -37,6 +37,7 @@ class MovieRowComponent: DataBasedComponentView<MovieRowData> {
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.font = .boldSystemFont(ofSize: 20)
+        label.textColor = .white
         label.isUserInteractionEnabled = false
         return label
     }()
@@ -48,7 +49,7 @@ class MovieRowComponent: DataBasedComponentView<MovieRowData> {
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.font = .boldSystemFont(ofSize: 15)
-        label.textColor = .gray
+        label.textColor = .white
         label.isUserInteractionEnabled = false
         return label
     }()
@@ -81,7 +82,7 @@ class MovieRowComponent: DataBasedComponentView<MovieRowData> {
             movieImageView.widthAnchor.constraint(equalToConstant: 100),
             mainStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             mainStackView.widthAnchor.constraint(equalTo: widthAnchor, constant: UIScreen.main.bounds.width - 20),
-            mainStackView.heightAnchor.constraint(equalToConstant: 100)
+            mainStackView.heightAnchor.constraint(equalToConstant: 100),
         ])
     }
 }

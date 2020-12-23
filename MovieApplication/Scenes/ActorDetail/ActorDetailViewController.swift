@@ -24,18 +24,18 @@ class ActorDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        initiateViews()
-    }
-    
-    private func initiateViews() {
         viewModel?.getActorDetail(castId: viewModel?.castId ?? 0, onComplete: { [weak self] (actor) in
             guard let self = self else { return }
             DispatchQueue.main.async {
-                self.setupBiographyView(actor: actor)
-                self.view.addSubview(self.mainStackView)
-                self.setupConstraints()
+                self.initiateViews(actor: actor)
             }
         })
+    }
+    
+    private func initiateViews(actor: Actor) {
+        setupBiographyView(actor: actor)
+        view.addSubview(mainStackView)
+        setupConstraints()
     }
     
     private func setupBiographyView(actor: Actor) {
@@ -50,7 +50,11 @@ class ActorDetailViewController: UIViewController {
             mainStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             mainStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             mainStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
-            mainStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            mainStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
+            biographyView.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor),
+            biographyView.trailingAnchor.constraint(equalTo: mainStackView.trailingAnchor),
+            biographyView.topAnchor.constraint(equalTo: mainStackView.topAnchor),
+            biographyView.bottomAnchor.constraint(equalTo: mainStackView.bottomAnchor),
         ])
     }
 }

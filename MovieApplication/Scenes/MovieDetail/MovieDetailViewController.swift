@@ -17,10 +17,7 @@ class MovieDetailViewController: UIViewController {
     
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView(frame: .zero)
-        scrollView.backgroundColor = .white
-        scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height + 400)
-        scrollView.frame = view.bounds
-        scrollView.autoresizingMask = .flexibleHeight
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
     }()
     
@@ -31,7 +28,6 @@ class MovieDetailViewController: UIViewController {
         stackView.distribution = .fill
         stackView.axis = .vertical
         stackView.spacing = 5
-//        stackView.frame.size = CGSize(width: self.view.frame.width, height: self.view.frame.height + 400)
         return stackView
     }()
     

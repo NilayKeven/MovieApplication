@@ -60,6 +60,7 @@ extension PopularMoviesViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         let movieDetailViewModel = MovieDetailViewModel(movieId: viewModel.popularMovies[indexPath.row].id)
         let movieDetailViewController = MovieDetailViewController()
         movieDetailViewController.viewModel = movieDetailViewModel
