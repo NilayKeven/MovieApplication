@@ -1,8 +1,25 @@
 //
 //  BaseView.swift
-//  MovieApplication
+//  MovieApp
 //
-//  Created by Nilay Keven on 23.12.2020.
+//  Created by Nilay Keven on 21.12.2020.
 //
 
-import Foundation
+import UIKit
+
+open class BaseView: UIView {
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupViews()
+        addMajorViews()
+    }
+    
+    public required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupViews()
+        addMajorViews()
+    }
+    
+    open func setupViews() {}
+    open func addMajorViews() {}
+}
